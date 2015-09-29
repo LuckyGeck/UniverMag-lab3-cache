@@ -55,6 +55,10 @@ public:
         return TicksTimer - CacheHits;
     }
 
+    double GetCacheMissRate() const {
+        return GetCacheMisses() / (TicksTimer * 1.0);
+    }
+
 private:
     struct TCacheLine {
         size_t LineNum = -1;
@@ -85,17 +89,17 @@ public:
 
     /// @return true if needed cache line is in cache
     bool Touch(const void* ptr) {
-        // std::cerr << std::oct << GetIndexFromPtr(ptr) << "\t->\t" << GetCacheLineNumFromPtr(ptr) << std::endl;
         return CacheSets[GetIndexFromPtr(ptr)].Touch(GetCacheLineNumFromPtr(ptr));
     }
 
-    std::vector<size_t> GetCacheMisses() const {
-        std::vector<size_t> result;
-        result.reserve(SetsCount);
+    void PrintStats() const {
+        size_t cacheSetIdx = 0;
         for (const auto& cacheSet : CacheSets) {
-            result.push_back(cacheSet.GetCacheMisses());
+            std::cout << cacheSetIdx << ")\t"
+                      << cacheSet.GetCacheMisses() << "\t"
+                      << cacheSet.GetCacheMissRate() << std::endl;
+            ++cacheSetIdx;
         }
-        return result;
     }
 
 private:
@@ -120,14 +124,6 @@ private:
 
     std::vector<TCacheSet> CacheSets;
 };
-
-void PrintStats(const TCache& cache) {
-    auto misses = cache.GetCacheMisses();
-    // auto hits = cache.GetCacheHits();
-    for (size_t i = 0; i < misses.size(); ++i) {
-        std::cerr << i << ")\t" << misses[i] << std::endl;
-    }
-}
 
 void MultSimpleTooled(TCache& cache,
                       const float* __restrict a,
@@ -248,8 +244,13 @@ void FillRandom(float* a, int n)
 int main(int argc, char* argv[])
 {
     const int n = atoi(argv[1]);
-    std::cerr << "n = " << n << std::endl;
-
+    const size_t cacheSizeKB    = atoi(argv[2]);
+    const size_t cacheLineSizeB = atoi(argv[3]);
+    const size_t waysCount      = atoi(argv[4]);
+    std::cout << "n = " << n << std::endl;
+    std::cout << "Cache: " << cacheSizeKB << "KB, "
+              << waysCount << " ways with "
+              << cacheLineSizeB << "b cache line." << std::endl;
     float* a = new float[n * n];
     float* b = new float[n * n];
     float* c = new float[n * n];
@@ -257,15 +258,15 @@ int main(int argc, char* argv[])
     FillRandom(a, n);
     FillRandom(b, n);
 
-    TCache cache(3*1024*1024 /* 32kb */, 64 /* 64b */, 12 /* ways */);
+    TCache cache(cacheSizeKB * 1024 /* kb */, cacheLineSizeB /* b */, waysCount /* ways */);
     {
         const auto startTime = std::clock();
         MultSimpleTooled(cache, a, b, c, n);
         const auto endTime = std::clock();
 
-        std::cerr << "timeSimple: " << double(endTime - startTime) / CLOCKS_PER_SEC << '\n';
+        std::cout << "timeSimple: " << double(endTime - startTime) / CLOCKS_PER_SEC << '\n';
     }
-    PrintStats(cache);
+    cache.PrintStats();
 
     delete[] a;
     delete[] b;
