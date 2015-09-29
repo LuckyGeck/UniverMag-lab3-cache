@@ -1,0 +1,27 @@
+http://www.cpu-world.com/CPUs/Core_i5/Intel-Core%20i5-4258U%20Mobile%20processor.html
+
+Level 1 cache size  2 x 32 KB 8-way set associative instruction caches
+                    2 x 32 KB 8-way set associative data caches
+
+Level 2 cache size  2 x 256 KB 8-way set associative caches
+Level 3 cache size  3 MB 12-way set associative shared cache
+
+
+$ sysctl -a | grep machdep.cpu.cache
+
+machdep.cpu.cache.linesize: 64
+machdep.cpu.cache.L2_associativity: 8
+machdep.cpu.cache.size: 256
+
+----
+
+2 CPU
+CacheLine = 64b = 2^6
+L1 = 32KB, 8-way, per-cpu
+L2 = 256KB, 8-way, per-cpu
+L3 = 3MB, 12-way, shared
+
+32Kb / 64b = 512 blocks
+512 / 8 = 64 sets = 2^6
+
+[64-12=52 bit - tag][6 bit - offset][6 bit - offset]
