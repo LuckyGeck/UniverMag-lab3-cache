@@ -1,6 +1,7 @@
 #include <cmath>
 #include <ctime>
 #include <iostream>
+#include <iomanip>
 #include <random>
 #include <set>
 #include <vector>
@@ -18,6 +19,7 @@ public:
     TCacheSet(size_t waysCount)
         : TicksTimer(0)
         , CacheWays(waysCount)
+        , CacheHits(0)
     {}
 
     bool Touch(size_t cacheLineNum) {
@@ -51,6 +53,10 @@ public:
         return CacheHits;
     }
 
+    size_t GetTicks() const {
+        return TicksTimer;
+    }
+
     size_t GetCacheMisses() const {
         return TicksTimer - CacheHits;
     }
@@ -79,13 +85,23 @@ public:
         : CacheSize(cacheSize)
         , CacheLineSize(cacheLineSize)
         , WaysCount(waysCount)
-        , BlocksCount(CacheSize / CacheLineSize)
+        , BlocksCount(CacheSize / cacheLineSize)
         , SetsCount(BlocksCount / WaysCount)
         , BlockOffsetSize(static_cast<size_t>(log2(CacheLineSize)))
         , ShiftedIndexMask(GenerateMaskWithRightOnes(static_cast<size_t>(log2(SetsCount))))
         , InvBlockMask(~GenerateMaskWithRightOnes(BlockOffsetSize))
         , CacheSets(SetsCount, {WaysCount})
-    {}
+    {
+        std::cout << "Aha: "
+        << CacheSize << ' '
+        << CacheLineSize << ' '
+        << WaysCount << ' '
+        << BlocksCount << ' '
+        << SetsCount << ' '
+        << BlockOffsetSize << ' '
+        << ShiftedIndexMask << ' '
+        << InvBlockMask << ' ' << std::endl;
+    }
 
     /// @return true if needed cache line is in cache
     bool Touch(const void* ptr) {
@@ -97,7 +113,8 @@ public:
         for (const auto& cacheSet : CacheSets) {
             std::cout << cacheSetIdx << ")\t"
                       << cacheSet.GetCacheMisses() << "\t"
-                      << cacheSet.GetCacheMissRate() << std::endl;
+                      << cacheSet.GetTicks() << "\t= "
+                      << std::setprecision(3) << cacheSet.GetCacheMissRate() * 100.0 << '%' << std::endl;
             ++cacheSetIdx;
         }
     }
@@ -243,6 +260,11 @@ void FillRandom(float* a, int n)
 
 int main(int argc, char* argv[])
 {
+    if (argc < 5) {
+        std::cerr << "Usage: " << argv[0]
+                  << " MATRIX_SIZE CACHE_SIZE_KB CACHE_LINE_SIZE_B WAYS_COUNT" << std::endl;
+        return 1;
+    }
     const int n = atoi(argv[1]);
     const size_t cacheSizeKB    = atoi(argv[2]);
     const size_t cacheLineSizeB = atoi(argv[3]);
@@ -257,7 +279,6 @@ int main(int argc, char* argv[])
 
     FillRandom(a, n);
     FillRandom(b, n);
-
     TCache cache(cacheSizeKB * 1024 /* kb */, cacheLineSizeB /* b */, waysCount /* ways */);
     {
         const auto startTime = std::clock();
