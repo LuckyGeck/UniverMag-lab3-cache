@@ -124,10 +124,10 @@ public:
             mean += misses / CacheSets.size();
             meanSq += misses * misses / CacheSets.size();
         }
-        std::cout << "Misses: mean=" << std::setprecision(3) << mean << " "
-                              "var=" << std::setprecision(3) << (meanSq - mean * mean) << " "
-                             "rate=" << std::setprecision(3)
-                                     << (mean * CacheSets.size() / totalTicks) * 100 << '%'
+        std::cout << std::fixed << std::setprecision(3)
+                  << "Misses: mean=" << mean << " "
+                              "var=" << (meanSq - mean * mean) << " "
+                             "rate=" << (mean * CacheSets.size() / totalTicks) * 100 << '%'
                   << std::endl;
 
     }
