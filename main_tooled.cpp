@@ -110,13 +110,26 @@ public:
 
     void PrintStats() const {
         size_t cacheSetIdx = 0;
+        double mean = 0.0;
+        double meanSq = 0.0;
+        size_t totalTicks = 0;
         for (const auto& cacheSet : CacheSets) {
             std::cout << cacheSetIdx << ")\t"
                       << cacheSet.GetCacheMisses() << "\t"
                       << cacheSet.GetTicks() << "\t= "
                       << std::setprecision(3) << cacheSet.GetCacheMissRate() * 100.0 << '%' << std::endl;
             ++cacheSetIdx;
+            totalTicks += cacheSet.GetTicks();
+            double misses = cacheSet.GetCacheMisses() * 1.0;
+            mean += misses / CacheSets.size();
+            meanSq += misses * misses / CacheSets.size();
         }
+        std::cout << "Misses: mean=" << std::setprecision(3) << mean << " "
+                              "var=" << std::setprecision(3) << (meanSq - mean * mean) << " "
+                             "rate=" << std::setprecision(3)
+                                     << (mean * CacheSets.size() / totalTicks) * 100 << '%'
+                  << std::endl;
+
     }
 
 private:
