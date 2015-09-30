@@ -161,51 +161,28 @@ void MultSimpleTooled(TCache& cache,
                       float* __restrict c,
                       int n)
 {
+    /// We suppose that i j k, as iteration vars, would be placed to registers
+    /// So cache will work with n, a, b, c and corresponding arrays
+    cache.Touch(&n); // for next loop start
     for (int i = 0; i < n; ++i) {
-        if (i == 0) {
-            //>-- i = 0
-            cache.Touch(&i);
-            //<-- i = 0
-            //>-- i < n
-            cache.Touch(&i);
-            cache.Touch(&n);
-            //<-- i < n
-        }
-
+        cache.Touch(&n); // for next loop start
         for (int j = 0; j < n; ++j) {
-            if (j == 0) {
-                //>-- j = 0
-                cache.Touch(&j);
-                //<-- j = 0
-                //>-- j < n
-                cache.Touch(&j);
-                cache.Touch(&n);
-                //<-- j < n
-            }
-
             //>-- c[i * n + j]
-            cache.Touch(&i);
-            cache.Touch(&j);
+            // cache.Touch(&i);
+            // cache.Touch(&j);
             cache.Touch(&n);
             cache.Touch(&c);
             cache.Touch(&c[i * n + j]);
             //<-- c[i * n + j]
 
             c[i * n + j] = 0.f;
-            for (int k = 0; k < n; ++k) {
-                if (k == 0) {
-                    //>-- k = 0
-                    cache.Touch(&k);
-                    //<-- k = 0
-                    //>-- k < n
-                    cache.Touch(&k);
-                    cache.Touch(&n);
-                    //<-- k < n
-                }
 
-                cache.Touch(&i);
-                cache.Touch(&j);
-                cache.Touch(&k);
+            cache.Touch(&n); // for next loop start
+            for (int k = 0; k < n; ++k) {
+
+                // cache.Touch(&i);
+                // cache.Touch(&j);
+                // cache.Touch(&k);
                 cache.Touch(&n);
                 cache.Touch(&a);
                 cache.Touch(&b);
@@ -216,29 +193,20 @@ void MultSimpleTooled(TCache& cache,
 
                 c[i * n + j] += a[i * n + k] * b[k * n + j];
 
-                //>-- ++k
-                cache.Touch(&k);
-                //<-- ++k
                 //>-- k < n
-                cache.Touch(&k);
+                // cache.Touch(&k);
                 cache.Touch(&n);
                 //<-- k < n
             }
 
-            //>-- ++j
-            cache.Touch(&j);
-            //<-- ++j
             //>-- j < n
-            cache.Touch(&j);
+            // cache.Touch(&j);
             cache.Touch(&n);
             //<-- j < n
         }
 
-        //>-- ++i
-        cache.Touch(&i);
-        //<-- ++i
         //>-- i < n
-        cache.Touch(&i);
+        // cache.Touch(&i);
         cache.Touch(&n);
         //<-- i < n
     }
