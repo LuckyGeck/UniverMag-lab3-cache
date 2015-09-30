@@ -93,14 +93,14 @@ public:
         , CacheSets(SetsCount, {WaysCount})
     {
         std::cout << "Params: " << std::endl
-        << "CacheSize:\t" << CacheSize << ' ' << std::endl
-        << "CacheLineSize:\t" << CacheLineSize << ' ' << std::endl
-        << "WaysCount:\t" << WaysCount << ' ' << std::endl
-        << "BlocksCount:\t" << BlocksCount << ' ' << std::endl
-        << "SetsCount:\t" << SetsCount << ' ' << std::endl
-        << "BlockOffsetSize:\t" << BlockOffsetSize << ' ' << std::endl
-        << "ShiftedIndexMask:\t" << ShiftedIndexMask << ' ' << std::endl
-        << "InvBlockMask:\t" << InvBlockMask << ' ' << std::endl;
+                  << "\tCacheSize:\t"        << CacheSize        << ' ' << std::endl
+                  << "\tCacheLineSize:\t"    << CacheLineSize    << ' ' << std::endl
+                  << "\tWaysCount:\t"        << WaysCount        << ' ' << std::endl
+                  << "\tBlocksCount:\t"      << BlocksCount      << ' ' << std::endl
+                  << "\tSetsCount:\t"        << SetsCount        << ' ' << std::endl
+                  << "\tBlockOffsetSize:\t"  << BlockOffsetSize  << ' ' << std::endl
+                  << "\tShiftedIndexMask:\t" << ShiftedIndexMask << ' ' << std::endl
+                  << "\tInvBlockMask:\t"     << InvBlockMask     << ' ' << std::endl;
     }
 
     /// @return true if needed cache line is in cache
