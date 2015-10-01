@@ -125,9 +125,10 @@ public:
             meanSq += misses * misses / CacheSets.size();
         }
         std::cout << std::fixed << std::setprecision(3)
-                  << "Misses: mean=" << mean << " "
-                              "var=" << (meanSq - mean * mean) << " "
-                             "rate=" << (mean * CacheSets.size() / totalTicks) * 100 << '%'
+                  << "Misses:" << std::endl
+                  << "\tmean=" << mean << std::endl
+                  << "\tvar=" << (meanSq - mean * mean) << std::endl
+                  << "\trate=" << (mean * CacheSets.size() / totalTicks) * 100 << '%'
                   << std::endl;
 
     }
@@ -162,7 +163,7 @@ void MultSimpleTooled(TCache& cache,
                       int n)
 {
     /// We suppose that i j k, as iteration vars, would be placed to registers
-    /// So cache will work with n, a, b, c and corresponding arrays
+    /// So cache will work only with n, a, b, c and corresponding arrays
     cache.Touch(&n); // for next loop start
     for (int i = 0; i < n; ++i) {
         cache.Touch(&n); // for next loop start
@@ -179,7 +180,6 @@ void MultSimpleTooled(TCache& cache,
 
             cache.Touch(&n); // for next loop start
             for (int k = 0; k < n; ++k) {
-
                 // cache.Touch(&i);
                 // cache.Touch(&j);
                 // cache.Touch(&k);
@@ -266,7 +266,7 @@ int main(int argc, char* argv[])
         MultSimpleTooled(cache, a, b, c, n);
         const auto endTime = std::clock();
 
-        std::cout << "timeSimple: " << double(endTime - startTime) / CLOCKS_PER_SEC << '\n';
+        std::cout << "timeSimple: " << double(endTime - startTime) / CLOCKS_PER_SEC << std::endl;
     }
     cache.PrintStats();
 
