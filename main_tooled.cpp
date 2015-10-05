@@ -24,7 +24,6 @@ public:
 
     bool Touch(size_t cacheLineNum) {
         ++TicksTimer;
-        // CacheLine2LastTouch[cacheLineNum] = TicksTimer;
         TCacheLine* minTickLine = nullptr;
         size_t minTickTime = TicksTimer;
         for (auto& activeLine : CacheWays) {
@@ -74,7 +73,6 @@ private:
 private:
     size_t TicksTimer;
     std::vector<TCacheLine> CacheWays; // Contains LineNum == -1 if free
-    // std::unordered_map<size_t, size_t> CacheLine2LastTouch;
 
     size_t CacheHits;
 };
