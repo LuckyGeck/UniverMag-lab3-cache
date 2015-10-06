@@ -1,0 +1,540 @@
+$> ./cache 127 32 64 8
+n = 127
+Cache: 32KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	32768 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	512 
+	SetsCount:	64 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	63 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 0.108862
+Misses:
+	total=130281
+	rate=0.791%
+	mean=2035.641
+	var=2946.730
+$> ./cache 127 256 64 8
+n = 127
+Cache: 256KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	262144 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	4096 
+	SetsCount:	512 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	511 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 0.074444
+Misses:
+	total=3028
+	rate=0.018%
+	mean=5.914
+	var=0.137
+$> ./cache 127 3072 64 12
+n = 127
+Cache: 3072KB, 12 ways with 64b cache line.
+Params: 
+	CacheSize:	3145728 
+	CacheLineSize:	64 
+	WaysCount:	12 
+	BlocksCount:	49152 
+	SetsCount:	4096 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	4095 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 0.047275
+Misses:
+	total=3028
+	rate=0.018%
+	mean=0.739
+	var=0.193
+$> ./cache 128 32 64 8
+n = 128
+Cache: 32KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	32768 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	512 
+	SetsCount:	64 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	63 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 0.096726
+Misses:
+	total=2115601
+	rate=12.549%
+	mean=33056.266
+	var=3.945
+$> ./cache 128 256 64 8
+n = 128
+Cache: 256KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	262144 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	4096 
+	SetsCount:	512 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	511 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 0.072981
+Misses:
+	total=3073
+	rate=0.018%
+	mean=6.002
+	var=0.002
+$> ./cache 128 3072 64 12
+n = 128
+Cache: 3072KB, 12 ways with 64b cache line.
+Params: 
+	CacheSize:	3145728 
+	CacheLineSize:	64 
+	WaysCount:	12 
+	BlocksCount:	49152 
+	SetsCount:	4096 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	4095 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 0.049821
+Misses:
+	total=3073
+	rate=0.018%
+	mean=0.750
+	var=0.188
+$> ./cache 129 32 64 8
+n = 129
+Cache: 32KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	32768 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	512 
+	SetsCount:	64 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	63 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 0.123309
+Misses:
+	total=136492
+	rate=0.791%
+	mean=2132.688
+	var=3185.527
+$> ./cache 129 256 64 8
+n = 129
+Cache: 256KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	262144 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	4096 
+	SetsCount:	512 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	511 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 0.081498
+Misses:
+	total=3124
+	rate=0.018%
+	mean=6.102
+	var=0.091
+$> ./cache 129 3072 64 12
+n = 129
+Cache: 3072KB, 12 ways with 64b cache line.
+Params: 
+	CacheSize:	3145728 
+	CacheLineSize:	64 
+	WaysCount:	12 
+	BlocksCount:	49152 
+	SetsCount:	4096 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	4095 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 0.052371
+Misses:
+	total=3124
+	rate=0.018%
+	mean=0.763
+	var=0.181
+$> ./cache 1023 32 64 8
+n = 1023
+Cache: 32KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	32768 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	512 
+	SetsCount:	64 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	63 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 55.5381
+Misses:
+	total=1137589812
+	rate=13.274%
+	mean=17774840.812
+	var=140478.188
+$> ./cache 1023 256 64 8
+n = 1023
+Cache: 256KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	262144 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	4096 
+	SetsCount:	512 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	511 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 52.1892
+Misses:
+	total=67045185
+	rate=0.782%
+	mean=130947.627
+	var=195898.730
+$> ./cache 1023 3072 64 12
+n = 1023
+Cache: 3072KB, 12 ways with 64b cache line.
+Params: 
+	CacheSize:	3145728 
+	CacheLineSize:	64 
+	WaysCount:	12 
+	BlocksCount:	49152 
+	SetsCount:	4096 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	4095 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 94.6691
+Misses:
+	total=67045185
+	rate=0.782%
+	mean=16368.453
+	var=31541.061
+$> ./cache 1024 32 64 8
+n = 1024
+Cache: 32KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	32768 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	512 
+	SetsCount:	64 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	63 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 104.892
+Misses:
+	total=1074984961
+	rate=12.507%
+	mean=16796640.016
+	var=31745.000
+$> ./cache 1024 256 64 8
+n = 1024
+Cache: 256KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	262144 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	4096 
+	SetsCount:	512 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	511 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 109.282
+Misses:
+	total=1074978817
+	rate=12.507%
+	mean=2099568.002
+	var=1792.064
+$> ./cache 1024 3072 64 12
+n = 1024
+Cache: 3072KB, 12 ways with 64b cache line.
+Params: 
+	CacheSize:	3145728 
+	CacheLineSize:	64 
+	WaysCount:	12 
+	BlocksCount:	49152 
+	SetsCount:	4096 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	4095 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 134.794
+Misses:
+	total=1074891841
+	rate=12.506%
+	mean=262424.766
+	var=63.410
+$> ./cache 1025 32 64 8
+n = 1025
+Cache: 32KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	32768 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	512 
+	SetsCount:	64 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	63 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 59.5554
+Misses:
+	total=1144404812
+	rate=13.276%
+	mean=17881325.188
+	var=127656.375
+$> ./cache 1025 256 64 8
+n = 1025
+Cache: 256KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	262144 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	4096 
+	SetsCount:	512 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	511 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 52.6006
+Misses:
+	total=67438916
+	rate=0.782%
+	mean=131716.633
+	var=197565.959
+$> ./cache 1025 3072 64 12
+n = 1025
+Cache: 3072KB, 12 ways with 64b cache line.
+Params: 
+	CacheSize:	3145728 
+	CacheLineSize:	64 
+	WaysCount:	12 
+	BlocksCount:	49152 
+	SetsCount:	4096 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	4095 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 96.4591
+Misses:
+	total=67438916
+	rate=0.782%
+	mean=16464.579
+	var=32035.971
+$> ./cache 1040 32 64 8
+n = 1040
+Cache: 32KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	32768 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	512 
+	SetsCount:	64 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	63 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 58.306
+Misses:
+	total=1195235601
+	rate=13.274%
+	mean=18675556.266
+	var=58615692.062
+$> ./cache 1040 256 64 8
+n = 1040
+Cache: 256KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	262144 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	4096 
+	SetsCount:	512 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	511 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 66.595
+Misses:
+	total=70439201
+	rate=0.782%
+	mean=137576.564
+	var=32739.621
+$> ./cache 1040 3072 64 12
+n = 1040
+Cache: 3072KB, 12 ways with 64b cache line.
+Params: 
+	CacheSize:	3145728 
+	CacheLineSize:	64 
+	WaysCount:	12 
+	BlocksCount:	49152 
+	SetsCount:	4096 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	4095 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 85.6981
+Misses:
+	total=70439201
+	rate=0.782%
+	mean=17197.071
+	var=269441.584
+$> ./cache 1041 32 64 8
+n = 1041
+Cache: 32KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	32768 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	512 
+	SetsCount:	64 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	63 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 58.0393
+Misses:
+	total=1199701624
+	rate=13.285%
+	mean=18745337.875
+	var=69438768.750
+$> ./cache 1041 256 64 8
+n = 1041
+Cache: 256KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	262144 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	4096 
+	SetsCount:	512 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	511 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 70.1032
+Misses:
+	total=70644409
+	rate=0.782%
+	mean=137977.361
+	var=221462.895
+$> ./cache 1041 3072 64 12
+n = 1041
+Cache: 3072KB, 12 ways with 64b cache line.
+Params: 
+	CacheSize:	3145728 
+	CacheLineSize:	64 
+	WaysCount:	12 
+	BlocksCount:	49152 
+	SetsCount:	4096 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	4095 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 101.131
+Misses:
+	total=70644409
+	rate=0.782%
+	mean=17247.170
+	var=268715.908
+$> ./cache 1050 32 64 8
+n = 1050
+Cache: 32KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	32768 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	512 
+	SetsCount:	64 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	63 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 61.1534
+Misses:
+	total=1231009240
+	rate=13.284%
+	mean=19234519.375
+	var=75001277.062
+$> ./cache 1050 256 64 8
+n = 1050
+Cache: 256KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	262144 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	4096 
+	SetsCount:	512 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	511 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 70.0585
+Misses:
+	total=72491083
+	rate=0.782%
+	mean=141584.146
+	var=267534.164
+$> ./cache 1050 3072 64 12
+n = 1050
+Cache: 3072KB, 12 ways with 64b cache line.
+Params: 
+	CacheSize:	3145728 
+	CacheLineSize:	64 
+	WaysCount:	12 
+	BlocksCount:	49152 
+	SetsCount:	4096 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	4095 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 106.119
+Misses:
+	total=72491083
+	rate=0.782%
+	mean=17698.018
+	var=160531.275
+$> ./cache 1100 32 64 8
+n = 1100
+Cache: 32KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	32768 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	512 
+	SetsCount:	64 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	63 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 67.8819
+Misses:
+	total=1415169801
+	rate=13.283%
+	mean=22112028.141
+	var=83966175.188
+$> ./cache 1100 256 64 8
+n = 1100
+Cache: 256KB, 8 ways with 64b cache line.
+Params: 
+	CacheSize:	262144 
+	CacheLineSize:	64 
+	WaysCount:	8 
+	BlocksCount:	4096 
+	SetsCount:	512 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	511 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 83.0227
+Misses:
+	total=83339576
+	rate=0.782%
+	mean=162772.609
+	var=251713.511
+$> ./cache 1100 3072 64 12
+n = 1100
+Cache: 3072KB, 12 ways with 64b cache line.
+Params: 
+	CacheSize:	3145728 
+	CacheLineSize:	64 
+	WaysCount:	12 
+	BlocksCount:	49152 
+	SetsCount:	4096 
+	BlockOffsetSize:	6 
+	ShiftedIndexMask:	4095 
+	InvBlockMask:	18446744073709551552 
+timeSimple: 122.036
+Misses:
+	total=83339576
+	rate=0.782%
+	mean=20346.576
+	var=299918.985
